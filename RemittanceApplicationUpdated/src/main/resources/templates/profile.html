@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <style>
+		body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+		p{
+			max-width: 600px;
+			margin: 10px auto;
+			padding: 10px;
+			background-color: lightgray;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		span{
+			font-weight: bold;
+		}
+		
+		
+	</style>
+</head>
+<body>
+    <h2> Profile </h2>
+    <p>Email : <span th:text="${user.email}"></span></p>
+    <p>Name : <span th:text="${user.fullName}"></span></p>
+    <p>Date Of Birth : <span th:text="${user.dateOfBirth}"></span></p>
+    <p>Address Line 1 : <span th:text="${user.addressLine1}"></span></p>
+    <p>Phone Number : <span th:text="${user.phoneNumber}"></span></p>
+    <p>City : <span th:text="${user.city}"></span></p>
+    <p>Country : <span th:text="${user.country}"></span></p>
+    <p>Pincode : <span th:text="${user.pincode}"></span></p>
+    <p>User Role : <span th:text="${user.userRole}"></span></p>
+</body>
+</html>

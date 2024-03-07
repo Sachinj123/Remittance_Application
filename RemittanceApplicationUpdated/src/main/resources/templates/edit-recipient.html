@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add Recipent</title>
+    <style>
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+			body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+    <h2>Edit Recipent</h2>
+    <form th:action="@{/recipients/edit/{id}(id=${recipient.recipentId})}" 
+    th:object="${recipient}" method="post">
+		
+			<label>Recipent Name:
+			<input type="text" th:field="*{recipentName}">
+		</label>
+		<br>
+		<br>
+		<label>Recipent Address:
+			<input type="text" th:field="*{recipentAddress}">
+		</label>
+		<br>
+		<br>
+		<label>Recipent Date Of Birth:
+			<input type="date" th:field="*{recipentDateOfBirth}">
+		</label>
+		<br>
+		<br>
+		<label>Recipent Phone Number:
+			<input type="text" th:field="*{recipentPhoneNumber}">
+		</label>
+		<br>
+		<br>
+		<input type="submit" value="Save">
+			
+	</form>
+	<br>
+	<a th:href="@{/recipients}">Back To Recipent List</a>
+</body>
+</html>

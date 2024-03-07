@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Conversion Rate</title>
+</head>
+<body>
+    <h2>Update Conversion Rate</h2>
+    <form th:action="@{/conversion-rates/update/{ratedId}(rateId=${rate.rateId})}" th:object="${rate}" method="post">
+		
+		<label for="currencyType">Currency Type:</label>
+		<select id="currencyType" name="currencyType" th:field="*{currencyType.currencyId}">
+			<option th:each="currencyType : ${currencyTypes}" 
+			th:value="${currencyType.currencyId}" th:text="${currencyType.currencyType}"></option>
+		</select>
+		<br>
+		<br>
+		<label for="convertedInto">Currency Type:</label>
+		<select id="convertedInto" name="convertedInto" th:field="*{convertedInto.id}">
+			<option th:each="convertedInto : ${convertedIntos}" 
+			th:value="${convertedInto.id}" th:text="${convertedInto.targetCurrency}"></option>
+		</select>
+		<br>
+		<br>
+		<label for="conversionRate">Conversion Rate</label>
+		<input type="text" id="conversionRate" name="conversionRate" th:field="*{conversionRate}">
+		<br>
+		<br>
+		<button type="submit">Update Conversion Rate</button>
+	</form>
+	<a th:href="@{/conversion-rates}">Back To Conversion Rates</a>
+</body>
+</html>

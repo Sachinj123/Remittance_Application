@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Currency Rates</title>
+</head>
+<body>
+    <h2>Update Currency Rates</h2>
+    <form th:action="@{/rates/update}">
+			<table>
+			<thead>
+			<tr>
+				<th>Currency</th>
+				<th>Converted Into</th>
+				<th>Current Rate</th>
+				<th>New Rate</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="rate, iterStat : ${rates}">
+				<td th:text="${rate.currencyType.currencyType}"></td>
+				<td th:text="${rate.convertedInto.targetCurrency}"></td>
+				<td th:text="${rate.conversionRate}"></td>
+				<td>
+					<input type="number" step="any" th:name="${rate.rateId}" th:value="${rate.conversionRate}">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<button type="submit">Update Rates</button>
+	<span th:if="${param.success !=null}" style="color: greenyellow;">Rates Updated Successfully</span>
+</form>
+</body>
+</html>

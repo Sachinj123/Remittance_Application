@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Receipts</title>
+     <style>
+				body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		table{
+			max-width: 1200px;
+			margin: 30px auto;
+			padding: 30px;
+			background-color: lightgray;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+</head>
+<body>
+    <h2>Wallet Receipts</h2>
+    <table>
+		<thead>
+			<tr>
+				<th>Receipt Id</th>
+				<th>From Wallet Type</th>
+				<th>To Wallet Type</th>
+				<th>Sender Mobile Number</th>
+				<th>Receiver Mobile Number</th>
+				<th>Date And Time</th>
+				<th>Amount Transfer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="receipt : ${walletReceipts}">
+				<td th:text="${receipt.walletReceiptId}"></td>
+				<td th:text="${receipt.fromWalletType}"></td>
+				<td th:text="${receipt.toWalletType}"></td>
+				<td th:text="${receipt.senderMobileNumber}"></td>
+				<td th:text="${receipt.receiverMobileNumber}"></td>
+				<td th:text="${receipt.dateAndTime}"></td>
+				<td th:text="${receipt.amountTransfer}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

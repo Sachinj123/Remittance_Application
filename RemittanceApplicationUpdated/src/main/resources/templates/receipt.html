@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Receipts</title>
+         <style>
+				body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		table{
+			max-width: 1200px;
+			margin: 30px auto;
+			padding: 30px;
+			background-color: lightgray;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+</head>
+<body>
+    <h2>Bank Transfer Receipts</h2>
+    <table>
+		<thead>
+			<tr>
+				<th>Receipt Id</th>
+				<th>Sender Name</th>
+				<th>Receiver Name</th>
+				<th>Sender Bank Account</th>
+				<th>Receiver Bank Account</th>
+				<th>User IFSCCode</th>
+				<th>Recipent IFSCCode</th>
+				<th>Aate And Time</th>
+				<th>Amount Transfer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<TR th:each="receipts : ${receipt}">
+				<td th:text="${receipts.receiptId}"></td>
+				<td th:text="${receipts.senderName}"></td>
+				<td th:text="${receipts.receiverName}"></td>
+				<td th:text="${receipts.senderBankAccount}"></td>
+				<td th:text="${receipts.receiverBankAccount}"></td>
+				<td th:text="${receipts.userIFSCCode}"></td>
+				<td th:text="${receipts.recipentIFSCCode}"></td>
+				<td th:text="${receipts.dateAndTime}"></td>
+				<td th:text="${receipts.amountTransfer}"></td>
+			</TR>
+		</tbody>
+	</table>
+</body>
+</html>

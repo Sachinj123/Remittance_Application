@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="Layout(content)" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+
+<body>
+	<div class="container">
+		<div class="message" th:if="${message != null}">
+			[[${message}]]
+		</div>
+		<h2>Registration Form</h2>
+
+		<form th:action="@{/registration}" method="post" role="form" th:object="${user}">
+
+			<div class="form-group">
+				<label for="fullname">Name:</label>
+				<input type="text" id="fullname" name="fullName" placeholder="Enter your Full Name" required>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+			</div>
+
+			<div class="form-group">
+				<label for="dateOfBirth">Date of Birth:</label>
+				<input type="date" id="dateOfBirth" name="dateOfBirth" placeholder="Enter Your Date Of Birth" required>
+			</div>
+
+			<div class="form-group">
+				<label for="phoneNumber">Phone Number:</label>
+				<input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter Your Phone Number" required>
+			</div>
+
+			<div class="form-group">
+				<label for="addressLine1">Address Line - 1:</label>
+				<input type="text" id="addressLine1" name="addressLine1" placeholder="Enter Your Address Line - 1"
+					required>
+			</div>
+
+			<div class="form-group">
+				<label for="addressLine2">Address Line - 2:</label>
+				<input type="text" id="addressLine2" name="addressLine2" placeholder="Enter Your Address Line - 2">
+			</div>
+
+			<div class="form-group">
+				<label for="city">City:</label>
+				<input type="text" id="city" name="city" placeholder="Enter Your City" required>
+			</div>
+
+			<div class="form-group">
+				<label for="country">Country:</label>
+				<input type="text" id="country" name="country" placeholder="Enter Your Country" required>
+			</div>
+
+			<div class="form-group">
+				<label for="pincode">Pincode:</label>
+				<input type="text" id="pincode" name="pincode" placeholder="Enter Your Pincode" required>
+			</div>
+			
+			<div class="form-group">
+				<label for="securityQuestion">Security Question:</label>
+				<select id="securityQuestion" name="securityQuestion">
+					<option value="select"> Choose One of The Following Security Question </option>
+					<option value="first-School">What is the Name of Your First School</option>
+					<option value="nickname">What is Your Nickname</option>
+					<option value="birth-place">What is Your Birth Place</option>
+					<option value="cricketer">What is Your Favourite Cricketer</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="securityAnswer">Security Answer:</label>
+				<input type="text" id="securityAnswer" name="securityAnswer" placeholder="Enter Your Security Answer" required>
+			</div>
+
+			<div class="form-group">
+				<label for="userRole">Choose User Role:</label>
+				<select id="userRole" name="userRole">
+					<option value="ADMIN">ADMIN</option>
+					<option value="USER">USER</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+			</div>
+			<input type="submit" value="Register">
+			
+			<a th:href="@{login}">Login</a>
+		</form>
+	</div>
+</body>
+
+</html>

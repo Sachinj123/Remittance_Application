@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion-Rate</title>
+    
+    <style>
+		
+		body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		table{
+			max-width: 1200px;
+			margin: 30px auto;
+			padding: 30px;
+			background-color: lightgray;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+</head>
+<body>
+    <h2>Conversion-Rate</h2>
+    <table>
+		<thead>
+			<tr>
+				<th >Sr.No</th>
+				<th>Currency Type</th>
+				<th>Converted Into</th>
+				<th>Conversion Rate</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="rate : ${conversionRates}">
+				<td th:text="${rate.rateId}"></td>
+				<td th:text="${rate.currencyType.currencyType}"></td>
+				<td th:text="${rate.convertedInto.targetCurrency}"></td>
+				<td th:text="${rate.conversionRate}"></td>
+				<td>
+				<a th:href="@{/conversion-rates/edit/{rateId}(rateId=${rate.rateId})}">Update Conversion Rate</a>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Success</title>
+      <style>
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+			body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+    <h2>Transaction Successful</h2>
+    <p>Details:</p>
+    <p th:text="'Sender:'+${receipt.senderName}"></p>
+    <p th:text="'Receiver:'+${receipt.receiverName}"></p>
+    <p th:text="'Sender:'+${receipt.amountTransfer}"></p>
+    
+    <a th:href="@{/transaction/transfer}">Go Back To Money Transfer</a>
+</body>
+</html>

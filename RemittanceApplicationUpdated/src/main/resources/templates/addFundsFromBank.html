@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Funds From Banks</title>
+      <style>
+		body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+</head>
+<body>
+    <h2>Add Funds From Banks</h2>
+    
+    <form th:action="@{add-funds-from-bank}" method="post">
+		
+		<label for="walletType">Wallet Type:</label>
+		
+		<select id="walletType" name="walletType">
+			<option th:each="walletType : ${walletTypes}" th:value="${walletType}" th:text="${walletType}">
+			</option>
+		</select>
+		
+		<label for="userBankAccounId">User Bank Account Id:</label>
+		<input type="text" id="userBankAccounId" name="userBankAccounId" required>
+		
+		<label for="amount">Amount:</label>
+		<input type="text" id="amount" name="amount" required>
+		
+		<button type="submit"> Load Funds </button>
+	</form>
+	
+	<p th:text="${resultMessage}"></p>
+</body>
+</html>

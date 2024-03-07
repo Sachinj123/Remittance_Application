@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipent List</title>
+    <style>
+				body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+		}
+		
+		table{
+			max-width: 1200px;
+			margin: 30px auto;
+			padding: 30px;
+			background-color: lightgray;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+	
+	<script>
+		src="https://code.jquery.com/jquery-3.6.4.min.js"
+		integrity="sha256-oP6HI/tZ1qP3l3hAC5Z5n9uM4PnQK1g2E9LlZ9ME7Z0="
+		crossorogin="anonymous"
+	</script>
+</head>
+<body>
+    <h2>Recipent List</h2>
+    <table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Date of Birth</th>
+			<th>Phone Number</th>
+			<th>Actions</th>
+			<th>Bank Details</th>
+			<th>Payment Methods</th>
+		</tr>
+		<tr th:each="recipient : ${recipients}" 
+		th:onclick="'javascript:showRecipientBankAccounts(' + ${recipient.recipentId}+');'">
+			<td th:text="${recipient.recipentId}"></td>
+			<td th:text="${recipient.recipentName}"></td>
+			<td th:text="${recipient.recipentAddress}"></td>
+			<td th:text="${recipient.recipentDateOfBirth}"></td>
+			<td th:text="${recipient.recipentPhoneNumber}"></td>
+			
+			<td>
+				<a th:href="@{/recipients/edit/{id}(id=${recipient.recipentId})}">EDIT</a>
+				<a th:href="@{/recipients/delete/{id}(id=${recipient.recipentId})}">DELETE</a>
+			</td>
+			<td>
+				<a th:href="@{/recipients/{recipientId}/bank-accounts(recipientId=${recipient.recipentId})}">View Bank Accounts</a>
+			</td>
+			<td>
+				<a th:href="@{/transaction/transfer}">Bank Transfer</a>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<a th:href="@{/recipients/add}">Add New Recipent</a>
+</body>
+</html>

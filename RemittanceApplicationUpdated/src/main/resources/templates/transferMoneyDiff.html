@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Money...</title>
+    <style>
+		body{
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 20px;
+			text-align: center;
+		}
+		
+		h2{
+			background-color: #45b6fe;
+			padding: 20px;
+			text-align: center;
+		
+		}
+	</style>
+</head>
+<body>
+	 <h2>Transfer Money...</h2>
+      <form th:action="@{api/transfer-moneydiff}" method="post">
+		
+		<label for="fromWalletType"> From Wallet Type </label>
+		<select id="fromWalletType" name="fromWalletType">
+			<option th:each="walletType : ${walletTypes}" th:value="${walletType}" th:text="${walletType}">
+			</option>
+		</select>
+		<br>
+		<br>
+		<label for="fromRegisterMobileNumber"> From Mobile Number </label>
+		<input type="text" id="fromRegisterMobileNumber" name="fromRegisterMobileNumber" required>
+		<br>
+		<br>
+		<label for="toWalletType">To Wallet Type</label>
+		<select id="toWalletType" name="toWalletType">
+			<option th:each="walletType : ${walletTypes}" th:value="${walletType}" th:text="${walletType}"></option>
+		</select>
+		<br>
+		<br>
+		<label for="toRegisterMobileNumber"> To Mobile Number </label>
+		<input type="text" id="toRegisterMobileNumber" name="toRegisterMobileNumber" required>
+		<br>
+		<br>
+		<label for="currencyFrom">Currency From</label>
+		<input type="number" name="currencyFrom" id="currencyFrom" required>
+		<br>
+		<br>
+		<label for="currencyTo">Currency To</label>
+		<input type="number" name="currencyTo" id="currencyTo" required>
+		<br>
+		<br>
+		<label for="amount">Amount : </label>
+		<input type="text" id="amount" name="amount" required>
+		<br>
+		<br>
+		<button type="submit">Transfer</button>
+	</form>
+	
+	<p th:text="${resultMessage}"></p>
+</body>
+</html>
